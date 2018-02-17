@@ -44,7 +44,6 @@ class DirectoryListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       let metadata = files[indexPath.row]
       if let fileMetadata = metadata as? Files.FileMetadata {
-        print("OPEN FILE ", fileMetadata, fileMetadata.name)
         let viewerController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "readerView") as! ComicReaderViewController
         viewerController.comicMetadata = fileMetadata
         self.navigationController?.pushViewController(viewerController, animated: true)

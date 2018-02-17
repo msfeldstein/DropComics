@@ -15,12 +15,12 @@ class ComicDownloadRequest: NSObject {
   var progressCallback : ComicDownloadRequestProgressCallback?
   var successCallback : ComicDownloadRequestSuccessCallback?
   
-  func progress(callback: @escaping ComicDownloadRequestProgressCallback) -> Self {
+  @discardableResult func progress(callback: @escaping ComicDownloadRequestProgressCallback) -> Self {
     self.progressCallback = callback
     return self
   }
   
-  func success(callback : @escaping ComicDownloadRequestSuccessCallback) -> Self {
+  @discardableResult func success(callback : @escaping ComicDownloadRequestSuccessCallback) -> Self {
     self.successCallback = callback
     return self
   }

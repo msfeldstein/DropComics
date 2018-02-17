@@ -1,0 +1,26 @@
+PODS:
+  - Alamofire (4.4.0)
+  - Cache (4.1.2)
+  - MZDownloadManager (3.3)
+  - SwiftyDropbox (4.2.0):
+    - Alamofire (~> 4.4.0)
+  - UnrarKit (2.8.1):
+    - UnrarKit/unrar-lib (= 2.8.1)
+  - UnrarKit/unrar-lib (2.8.1)
+
+DEPENDENCIES:
+  - Cache
+  - MZDownloadManager
+  - SwiftyDropbox (= 4.2.0)
+  - UnrarKit
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Cache: bd0233fc688b5e83a27bcd87807db7e6f23adcc5
+  MZDownloadManager: b6ee998b15a05b25f011d9c715ec6b184729a258
+  SwiftyDropbox: 6e7ecc3f3d7bf7c664888b0319d4e818f864a758
+  UnrarKit: 167602bda6542e575c4cdc068509d6b787f84468
+
+PODFILE CHECKSUM: cec88b769827859d16d489d89b40d9fe46744cae
+
+COCOAPODS: 1.4.0

@@ -40,6 +40,7 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
   
   @IBOutlet var progressBar : UIProgressView!
   @IBOutlet var collectionView : UICollectionView!
+
   var pages = [String]()
   var pageCount = 0
   var rarchive : URKArchive?
@@ -71,5 +72,13 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
   
   override func viewWillLayoutSubviews() {
     collectionView.collectionViewLayout.invalidateLayout()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    self.navigationController?.hidesBarsOnTap = true
+  }
+  
+  @IBAction func tapPage() {
+    
   }
 }

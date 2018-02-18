@@ -53,4 +53,8 @@ class DirectoryListViewController: UITableViewController {
         self.navigationController?.pushViewController(sublistController, animated: true)
       }
     }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    self.navigationController?.hidesBarsOnTap = false
+  }
 }

@@ -29,7 +29,7 @@
 		63E6390A2038D9D600A439C5 /* ComicDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDownloader.swift; sourceTree = "<group>"; };
 		63E6390C2038E65000A439C5 /* ComicDownloadRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDownloadRequest.swift; sourceTree = "<group>"; };
 		63E6390E2038FBE300A439C5 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
-		63EB01942038C71400EC1DE9 /* DropComic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropComic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63EB01942038C71400EC1DE9 /* DropComix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropComix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EB01972038C71400EC1DE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63EB01992038C71400EC1DE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		63EB019C2038C71400EC1DE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		63EB01952038C71400EC1DE9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63EB01942038C71400EC1DE9 /* DropComic.app */,
+				63EB01942038C71400EC1DE9 /* DropComix.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,9 +109,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		63EB01932038C71400EC1DE9 /* DropComic */ = {
+		63EB01932038C71400EC1DE9 /* DropComix */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63EB01A62038C71400EC1DE9 /* Build configuration list for PBXNativeTarget "DropComic" */;
+			buildConfigurationList = 63EB01A62038C71400EC1DE9 /* Build configuration list for PBXNativeTarget "DropComix" */;
 			buildPhases = (
 				0BBB252F2D85E01930F15C77 /* [CP] Check Pods Manifest.lock */,
 				63EB01902038C71400EC1DE9 /* Sources */,
@@ -124,9 +124,9 @@
 			);
 			dependencies = (
 			);
-			name = DropComic;
+			name = DropComix;
 			productName = DropComic;
-			productReference = 63EB01942038C71400EC1DE9 /* DropComic.app */;
+			productReference = 63EB01942038C71400EC1DE9 /* DropComix.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -145,7 +145,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 63EB018F2038C71400EC1DE9 /* Build configuration list for PBXProject "DropComic" */;
+			buildConfigurationList = 63EB018F2038C71400EC1DE9 /* Build configuration list for PBXProject "DropComix" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -158,7 +158,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				63EB01932038C71400EC1DE9 /* DropComic */,
+				63EB01932038C71400EC1DE9 /* DropComix */,
 			);
 		};
 /* End PBXProject section */
@@ -389,10 +389,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7SEVC6S2NQ;
+				DEVELOPMENT_TEAM = X55G8R9FS5;
 				INFOPLIST_FILE = DropComic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.macromeez.DropComic;
+				PRODUCT_BUNDLE_IDENTIFIER = fm.sway.DropComix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -405,10 +405,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7SEVC6S2NQ;
+				DEVELOPMENT_TEAM = X55G8R9FS5;
 				INFOPLIST_FILE = DropComic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.macromeez.DropComic;
+				PRODUCT_BUNDLE_IDENTIFIER = fm.sway.DropComix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -418,7 +418,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		63EB018F2038C71400EC1DE9 /* Build configuration list for PBXProject "DropComic" */ = {
+		63EB018F2038C71400EC1DE9 /* Build configuration list for PBXProject "DropComix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63EB01A42038C71400EC1DE9 /* Debug */,
@@ -427,7 +427,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63EB01A62038C71400EC1DE9 /* Build configuration list for PBXNativeTarget "DropComic" */ = {
+		63EB01A62038C71400EC1DE9 /* Build configuration list for PBXNativeTarget "DropComix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63EB01A72038C71400EC1DE9 /* Debug */,

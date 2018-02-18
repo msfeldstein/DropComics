@@ -10,7 +10,74 @@ import UIKit
 import SwiftyDropbox
 import UnrarKit
 
-class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
+  @IBOutlet var progressBar : UIProgressView!
+  @IBOutlet var collectionView : UICollectionView!
+  @IBOutlet var errorText : UILabel!
+
+  var pages = [String]()
+  var pageCount = 0
+  var rarchive : URKArchive?
+  var comicMetadata : Files.FileMetadata! {
+    didSet {
+      ComicDownloader.sharedInstance.startDownload(path: comicMetadata.pathLower!)
+      .success { url in
+        do {
+          self.rarchive = try URKArchive(url: url)
+          self.pages = try self.rarchive!.listFilenames()
+          self.reload()
+        } catch {
+          self.showError("Not a valid comic file")
+        }
+      }
+      .progress { progressData in
+        self.progressBar.progress = progressData
+      }
+    }
+  }
+  
+  @IBAction func previousPage() {
+    guard var currentPage = self.collectionView.indexPathsForVisibleItems.first else {
+      print("No current page i guess")
+      return
+    }
+    if currentPage.row == 0 { return }
+    currentPage.row -= 1
+    self.collectionView.scrollToItem(at: currentPage, at: .centeredHorizontally, animated: true)
+  }
+  
+  @IBAction func nextPage() {
+    guard var currentPage = self.collectionView.indexPathsForVisibleItems.first else {
+      print("No current page i guess")
+      return
+    }
+    currentPage.row += 1
+    if currentPage.row >= pageCount { return }
+    self.collectionView.scrollToItem(at: currentPage, at: .centeredHorizontally, animated: true)
+  }
+  
+  func showError(_ err: String) {
+    self.errorText.text = err
+    self.errorText.isHidden = false
+    self.errorText.layoutIfNeeded()
+  }
+  
+  func reload() {
+    if pages.count > 0 {
+      self.pageCount = pages.count
+      self.collectionView.isHidden = false
+      self.collectionView.reloadData()
+    }
+  }
+  
+  override func viewWillLayoutSubviews() {
+    collectionView.collectionViewLayout.invalidateLayout()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    self.navigationController?.hidesBarsOnTap = true
+  }
+  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return pageCount
   }
@@ -35,49 +102,5 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-  }
-  
-  @IBOutlet var progressBar : UIProgressView!
-  @IBOutlet var collectionView : UICollectionView!
-
-  var pages = [String]()
-  var pageCount = 0
-  var rarchive : URKArchive?
-  var comicMetadata : Files.FileMetadata! {
-    didSet {
-      ComicDownloader.sharedInstance.startDownload(path: comicMetadata.pathLower!)
-      .success { url in
-        do {
-          self.rarchive = try URKArchive(url: url)
-          self.pages = try self.rarchive!.listFilenames()
-          self.reload()
-        } catch {
-          fatalError()
-        }
-      }
-      .progress { progressData in
-        self.progressBar.progress = progressData
-      }
-    }
-  }
-  
-  func reload() {
-    if pages.count > 0 {
-      self.pageCount = pages.count
-      self.collectionView.isHidden = false
-      self.collectionView.reloadData()
-    }
-  }
-  
-  override func viewWillLayoutSubviews() {
-    collectionView.collectionViewLayout.invalidateLayout()
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    self.navigationController?.hidesBarsOnTap = true
-  }
-  
-  @IBAction func tapPage() {
-    
   }
 }

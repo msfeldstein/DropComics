@@ -15,6 +15,7 @@ class DirectoryListViewController: UITableViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = self.path != "" ? self.path : "Dropbox"
         if let client = DropboxClientsManager.authorizedClient {
           client.files.listFolder(path: self.path).response(queue: DispatchQueue(label: "MyCustomSerialQueue")) { response, error in
             if let result = response {
@@ -52,6 +53,7 @@ class DirectoryListViewController: UITableViewController {
         sublistController.path = directoryMetadata.pathLower!
         self.navigationController?.pushViewController(sublistController, animated: true)
       }
+      self.tableView.deselectRow(at: indexPath, animated: true)
     }
   
   override func viewWillAppear(_ animated: Bool) {

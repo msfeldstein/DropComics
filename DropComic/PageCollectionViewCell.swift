@@ -21,7 +21,7 @@ class PageCollectionViewCell: UICollectionViewCell, UIScrollViewDelegate {
       }
     }
   
-//    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-//      return self.imageView
-//    }
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+      return self.imageView
+    }
 }

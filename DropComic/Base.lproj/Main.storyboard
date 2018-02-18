@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,13 +30,13 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DropComic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DropComix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W48-id-RCF">
-                                <rect key="frame" x="126" y="617" width="122" height="30"/>
+                                <rect key="frame" x="126" y="84" width="122" height="563"/>
                                 <state key="normal" title="Log in to Dropbox"/>
                                 <connections>
                                     <action selector="loginToDropbox" destination="BYZ-38-t0r" eventType="touchUpInside" id="J3C-Vz-GeG"/>
@@ -45,6 +46,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="W48-id-RCF" secondAttribute="bottom" constant="20" id="5AN-RH-Hg5"/>
+                            <constraint firstItem="W48-id-RCF" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="HXk-Q1-xs4"/>
                             <constraint firstItem="W48-id-RCF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="yFt-QH-9KF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -61,13 +63,13 @@
         <!--Directory List View Controller-->
         <scene sceneID="dun-nh-fZ2">
             <objects>
-                <tableViewController storyboardIdentifier="directoryList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qle-OJ-7po" customClass="DirectoryListViewController" customModule="DropComic" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="directoryList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qle-OJ-7po" customClass="DirectoryListViewController" customModule="DropComix" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="t7e-7w-D4w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="directoryCell" id="luZ-SP-0vY" customClass="FileEntryCell" customModule="DropComic" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="directoryCell" id="luZ-SP-0vY" customClass="FileEntryCell" customModule="DropComix" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="directoryCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="luZ-SP-0vY" id="9bP-5W-UZG">
@@ -124,7 +126,7 @@
         <!--Comic Reader View Controller-->
         <scene sceneID="UPK-ek-BN3">
             <objects>
-                <viewController storyboardIdentifier="readerView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TUe-LX-UdP" customClass="ComicReaderViewController" customModule="DropComic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="readerView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TUe-LX-UdP" customClass="ComicReaderViewController" customModule="DropComix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7T7-qZ-djd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,25 +147,27 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="page" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="page" id="gjP-MP-rcP" customClass="PageCollectionViewCell" customModule="DropComic" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="page" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="page" id="gjP-MP-rcP" customClass="PageCollectionViewCell" customModule="DropComix" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="11" width="375" height="646"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="etg-c5-Tnc">
-                                                    <rect key="frame" x="-0.5" y="0.0" width="375" height="646"/>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etg-c5-Tnc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5w-6l-zW2">
-                                                            <rect key="frame" x="0.5" y="0.0" width="375" height="646"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
                                                             <color key="backgroundColor" red="1" green="0.59796811305923248" blue="0.10042695684544378" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="A5w-6l-zW2" firstAttribute="width" secondItem="etg-c5-Tnc" secondAttribute="width" id="BwF-Oj-CpO"/>
                                                         <constraint firstItem="A5w-6l-zW2" firstAttribute="centerY" secondItem="etg-c5-Tnc" secondAttribute="centerY" id="DsD-wK-Wa8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="A5w-6l-zW2" secondAttribute="trailing" constant="-1" id="EuF-0c-Q4p"/>
                                                         <constraint firstItem="A5w-6l-zW2" firstAttribute="height" secondItem="etg-c5-Tnc" secondAttribute="height" id="ioP-kB-eEf"/>
+                                                        <constraint firstAttribute="bottom" secondItem="A5w-6l-zW2" secondAttribute="bottom" id="nqm-y2-ZCF"/>
                                                         <constraint firstItem="A5w-6l-zW2" firstAttribute="centerX" secondItem="etg-c5-Tnc" secondAttribute="centerX" id="pbx-lV-F94"/>
                                                     </constraints>
                                                 </scrollView>
@@ -190,25 +194,69 @@
                                     <outlet property="delegate" destination="TUe-LX-UdP" id="sH4-tO-qDg"/>
                                 </connections>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akw-v3-80x">
+                                <rect key="frame" x="16" y="323" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAG-mu-Mez">
+                                <rect key="frame" x="0.0" y="10" width="57.5" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="cVH-bk-mCG" appends="YES" id="ITJ-DG-Sbc"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yf6-ig-ezO">
+                                <rect key="frame" x="320.5" y="10" width="54.5" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Nq5-8U-sHt" appends="YES" id="eZX-5h-mmO"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Yf6-ig-ezO" firstAttribute="height" secondItem="7T7-qZ-djd" secondAttribute="height" id="2aE-z5-v6h"/>
+                            <constraint firstItem="NAG-mu-Mez" firstAttribute="trailing" secondItem="0fZ-ey-Uyf" secondAttribute="trailing" multiplier="0.15" constant="1" id="4OG-8o-gWG"/>
                             <constraint firstItem="1GM-v7-SY0" firstAttribute="height" secondItem="7T7-qZ-djd" secondAttribute="height" id="79y-Dj-ZKl"/>
+                            <constraint firstItem="0fZ-ey-Uyf" firstAttribute="trailing" secondItem="Yf6-ig-ezO" secondAttribute="trailing" id="9BS-bj-GhT"/>
                             <constraint firstItem="1GM-v7-SY0" firstAttribute="leading" secondItem="0fZ-ey-Uyf" secondAttribute="leading" id="DKE-12-DTi"/>
                             <constraint firstItem="hvO-ur-GfN" firstAttribute="centerY" secondItem="0fZ-ey-Uyf" secondAttribute="centerY" id="E8J-Kq-DOi"/>
+                            <constraint firstItem="0fZ-ey-Uyf" firstAttribute="leading" secondItem="NAG-mu-Mez" secondAttribute="leading" id="G3Q-nz-3Zs"/>
+                            <constraint firstItem="Akw-v3-80x" firstAttribute="leading" secondItem="0fZ-ey-Uyf" secondAttribute="leading" constant="16" id="T4O-Ui-QBE"/>
+                            <constraint firstItem="0fZ-ey-Uyf" firstAttribute="trailing" secondItem="Akw-v3-80x" secondAttribute="trailing" constant="16" id="Wj3-JC-GSq"/>
                             <constraint firstItem="1GM-v7-SY0" firstAttribute="width" secondItem="7T7-qZ-djd" secondAttribute="width" id="Xp2-oS-Opx"/>
+                            <constraint firstItem="Akw-v3-80x" firstAttribute="centerY" secondItem="1GM-v7-SY0" secondAttribute="centerY" id="b4a-M7-g6t"/>
                             <constraint firstItem="1GM-v7-SY0" firstAttribute="bottom" secondItem="0fZ-ey-Uyf" secondAttribute="bottom" id="cKO-Lo-w2L"/>
+                            <constraint firstItem="Yf6-ig-ezO" firstAttribute="centerY" secondItem="0fZ-ey-Uyf" secondAttribute="centerY" id="iib-7B-Gmj"/>
+                            <constraint firstItem="Yf6-ig-ezO" firstAttribute="width" secondItem="7T7-qZ-djd" secondAttribute="width" multiplier="0.142857" constant="1" id="iii-kZ-S8T"/>
                             <constraint firstItem="0fZ-ey-Uyf" firstAttribute="trailing" secondItem="1GM-v7-SY0" secondAttribute="trailing" id="jW1-Vm-MIw"/>
+                            <constraint firstItem="NAG-mu-Mez" firstAttribute="height" secondItem="7T7-qZ-djd" secondAttribute="height" id="nmd-oa-RQW"/>
+                            <constraint firstItem="NAG-mu-Mez" firstAttribute="centerY" secondItem="0fZ-ey-Uyf" secondAttribute="centerY" id="or1-Vc-fl6"/>
                             <constraint firstItem="hvO-ur-GfN" firstAttribute="centerX" secondItem="0fZ-ey-Uyf" secondAttribute="centerX" id="sIF-D1-bOG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0fZ-ey-Uyf"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="1GM-v7-SY0" id="aVu-RR-3si"/>
+                        <outlet property="errorText" destination="Akw-v3-80x" id="FGL-WJ-6Xo"/>
                         <outlet property="progressBar" destination="hvO-ur-GfN" id="U3k-dB-tAR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cun-JE-vu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="cVH-bk-mCG">
+                    <connections>
+                        <action selector="previousPage" destination="TUe-LX-UdP" id="saG-f5-xHw"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Nq5-8U-sHt">
+                    <connections>
+                        <action selector="nextPage" destination="TUe-LX-UdP" id="hw5-nZ-YIH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1024.8" y="49.925037481259373"/>
         </scene>

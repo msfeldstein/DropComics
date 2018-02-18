@@ -12,6 +12,7 @@
 		63E639092038D99E00A439C5 /* ComicReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E639082038D99E00A439C5 /* ComicReaderViewController.swift */; };
 		63E6390B2038D9D600A439C5 /* ComicDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E6390A2038D9D600A439C5 /* ComicDownloader.swift */; };
 		63E6390D2038E65000A439C5 /* ComicDownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E6390C2038E65000A439C5 /* ComicDownloadRequest.swift */; };
+		63E6390F2038FBE300A439C5 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E6390E2038FBE300A439C5 /* PageCollectionViewCell.swift */; };
 		63EB01982038C71400EC1DE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB01972038C71400EC1DE9 /* AppDelegate.swift */; };
 		63EB019A2038C71400EC1DE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB01992038C71400EC1DE9 /* ViewController.swift */; };
 		63EB019D2038C71400EC1DE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EB019B2038C71400EC1DE9 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		63E639082038D99E00A439C5 /* ComicReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicReaderViewController.swift; sourceTree = "<group>"; };
 		63E6390A2038D9D600A439C5 /* ComicDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDownloader.swift; sourceTree = "<group>"; };
 		63E6390C2038E65000A439C5 /* ComicDownloadRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDownloadRequest.swift; sourceTree = "<group>"; };
+		63E6390E2038FBE300A439C5 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		63EB01942038C71400EC1DE9 /* DropComic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropComic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EB01972038C71400EC1DE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63EB01992038C71400EC1DE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				63E639082038D99E00A439C5 /* ComicReaderViewController.swift */,
 				63E6390A2038D9D600A439C5 /* ComicDownloader.swift */,
 				63E6390C2038E65000A439C5 /* ComicDownloadRequest.swift */,
+				63E6390E2038FBE300A439C5 /* PageCollectionViewCell.swift */,
 			);
 			path = DropComic;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				63E6390B2038D9D600A439C5 /* ComicDownloader.swift in Sources */,
 				630625622038D22F00B33E3A /* FileEntryCell.swift in Sources */,
 				63E639092038D99E00A439C5 /* ComicReaderViewController.swift in Sources */,
+				63E6390F2038FBE300A439C5 /* PageCollectionViewCell.swift in Sources */,
 				630625602038CFBC00B33E3A /* DirectoryListViewController.swift in Sources */,
 				63E6390D2038E65000A439C5 /* ComicDownloadRequest.swift in Sources */,
 				63EB019A2038C71400EC1DE9 /* ViewController.swift in Sources */,

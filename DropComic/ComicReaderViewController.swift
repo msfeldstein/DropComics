@@ -16,14 +16,13 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "page", for: indexPath)
-    let imageView = cell.viewWithTag(1) as! UIImageView
+    let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "page", for: indexPath) as! PageCollectionViewCell
     do {
       guard let data = try self.rarchive?.extractData(self.rarchive!.listFileInfo()[indexPath.row], progress: nil) else {
         fatalError()
       }
       let image = UIImage(data: data)
-      imageView.image = image
+      cell.image = image
     } catch {
     
     }

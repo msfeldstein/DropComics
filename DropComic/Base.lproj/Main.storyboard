@@ -145,25 +145,44 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="page" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="page" id="gjP-MP-rcP">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="page" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="page" id="gjP-MP-rcP" customClass="PageCollectionViewCell" customModule="DropComic" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="11" width="375" height="646"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5w-6l-zW2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
-                                                    <color key="backgroundColor" red="1" green="0.59796811305923248" blue="0.10042695684544378" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </imageView>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="etg-c5-Tnc">
+                                                    <rect key="frame" x="-0.5" y="0.0" width="375" height="646"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5w-6l-zW2">
+                                                            <rect key="frame" x="0.5" y="0.0" width="375" height="646"/>
+                                                            <color key="backgroundColor" red="1" green="0.59796811305923248" blue="0.10042695684544378" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="A5w-6l-zW2" firstAttribute="width" secondItem="etg-c5-Tnc" secondAttribute="width" id="BwF-Oj-CpO"/>
+                                                        <constraint firstItem="A5w-6l-zW2" firstAttribute="centerY" secondItem="etg-c5-Tnc" secondAttribute="centerY" id="DsD-wK-Wa8"/>
+                                                        <constraint firstItem="A5w-6l-zW2" firstAttribute="height" secondItem="etg-c5-Tnc" secondAttribute="height" id="ioP-kB-eEf"/>
+                                                        <constraint firstItem="A5w-6l-zW2" firstAttribute="centerX" secondItem="etg-c5-Tnc" secondAttribute="centerX" id="pbx-lV-F94"/>
+                                                    </constraints>
+                                                </scrollView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="A5w-6l-zW2" secondAttribute="trailing" id="2Kl-z0-Ake"/>
-                                            <constraint firstItem="A5w-6l-zW2" firstAttribute="top" secondItem="gjP-MP-rcP" secondAttribute="top" id="bj9-0r-fXH"/>
-                                            <constraint firstItem="A5w-6l-zW2" firstAttribute="leading" secondItem="gjP-MP-rcP" secondAttribute="leading" id="dOy-en-L0J"/>
-                                            <constraint firstAttribute="bottom" secondItem="A5w-6l-zW2" secondAttribute="bottom" id="emL-S6-1O3"/>
+                                            <constraint firstItem="A5w-6l-zW2" firstAttribute="centerX" secondItem="gjP-MP-rcP" secondAttribute="centerX" id="Hc6-Xl-Ict"/>
+                                            <constraint firstItem="A5w-6l-zW2" firstAttribute="height" secondItem="gjP-MP-rcP" secondAttribute="height" id="R6m-v4-hYG"/>
+                                            <constraint firstItem="A5w-6l-zW2" firstAttribute="width" secondItem="gjP-MP-rcP" secondAttribute="width" id="RGc-DN-6sq"/>
+                                            <constraint firstItem="etg-c5-Tnc" firstAttribute="height" secondItem="gjP-MP-rcP" secondAttribute="height" id="dAj-DA-ZwQ"/>
+                                            <constraint firstItem="A5w-6l-zW2" firstAttribute="centerY" secondItem="gjP-MP-rcP" secondAttribute="centerY" id="k39-jJ-hsm"/>
+                                            <constraint firstItem="etg-c5-Tnc" firstAttribute="centerX" secondItem="gjP-MP-rcP" secondAttribute="centerX" id="kCu-9g-VbU"/>
+                                            <constraint firstItem="etg-c5-Tnc" firstAttribute="width" secondItem="gjP-MP-rcP" secondAttribute="width" id="kL5-8y-GPg"/>
+                                            <constraint firstItem="etg-c5-Tnc" firstAttribute="centerY" secondItem="gjP-MP-rcP" secondAttribute="centerY" id="vlg-4Z-fYK"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="A5w-6l-zW2" id="tVB-ik-KcG"/>
+                                            <outlet property="scroller" destination="etg-c5-Tnc" id="lte-3H-h52"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

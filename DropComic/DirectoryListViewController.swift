@@ -15,7 +15,12 @@ class DirectoryListViewController: UITableViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = self.path != "" ? self.path : "Dropbox"
+        if path != "" {
+          let nsPath = path as NSString
+          self.title = nsPath.lastPathComponent
+        } else {
+          self.title = "Dropbox"
+        }
         if let client = DropboxClientsManager.authorizedClient {
           client.files.listFolder(path: self.path).response(queue: DispatchQueue(label: "MyCustomSerialQueue")) { response, error in
             if let result = response {
@@ -27,7 +32,6 @@ class DirectoryListViewController: UITableViewController {
             }
           }
         }
-      
     }
   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,5 +62,6 @@ class DirectoryListViewController: UITableViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     self.navigationController?.hidesBarsOnTap = false
+    self.tableView.reloadData()
   }
 }

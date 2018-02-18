@@ -12,9 +12,7 @@ class ComicData : NSObject, NSCoding {
   var pageCount = 0
   var lastPageRead = 0
   
-  override init() {
-    
-  }
+  override init() { }
   
   required init?(coder aDecoder: NSCoder) {
     pageCount = aDecoder.decodeInteger(forKey: "pageCount")
@@ -25,8 +23,6 @@ class ComicData : NSObject, NSCoding {
       aCoder.encode(pageCount, forKey: "pageCount")
       aCoder.encode(lastPageRead, forKey: "lastPageRead")
   }
-  
-  
 }
 
 class ComicDataCache: NSObject {

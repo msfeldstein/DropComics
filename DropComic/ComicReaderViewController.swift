@@ -20,6 +20,7 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
   var rarchive : URKArchive?
   var comicMetadata : Files.FileMetadata! {
     didSet {
+      self.title = comicMetadata.name
       ComicDownloader.sharedInstance.startDownload(path: comicMetadata.pathLower!)
       .success { url in
         do {
@@ -37,23 +38,11 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
   }
   
   @IBAction func previousPage() {
-    guard var currentPage = self.collectionView.indexPathsForVisibleItems.first else {
-      print("No current page i guess")
-      return
-    }
-    if currentPage.row == 0 { return }
-    currentPage.row -= 1
-    self.collectionView.scrollToItem(at: currentPage, at: .centeredHorizontally, animated: true)
+    goToPage(page: currentPage() - 1)
   }
   
   @IBAction func nextPage() {
-    guard var currentPage = self.collectionView.indexPathsForVisibleItems.first else {
-      print("No current page i guess")
-      return
-    }
-    currentPage.row += 1
-    if currentPage.row >= pageCount { return }
-    self.collectionView.scrollToItem(at: currentPage, at: .centeredHorizontally, animated: true)
+    goToPage(page: currentPage() + 1)
   }
   
   func showError(_ err: String) {
@@ -61,13 +50,22 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
     self.errorText.isHidden = false
     self.errorText.layoutIfNeeded()
   }
-  
+
   func reload() {
     if pages.count > 0 {
       self.pageCount = pages.count
       self.collectionView.isHidden = false
       self.collectionView.reloadData()
+      if let data = ComicDataCache.getComicData(path: self.comicMetadata.pathLower!) {
+        goToPage(page: data.lastPageRead, animated: false)
+      }
     }
+  }
+  
+  func goToPage(page : Int, animated : Bool = true) {
+    if page >= pageCount || page < 0 { return }
+    let path = IndexPath(row: page, section: 0)
+    self.collectionView.scrollToItem(at: path, at: .centeredHorizontally, animated: animated)
   }
   
   func currentPage() -> Int {
@@ -114,4 +112,8 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
   }
+  
+  override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return UIStatusBarAnimation.slide
+    }
 }

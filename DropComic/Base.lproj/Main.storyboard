@@ -82,14 +82,23 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5M-wn-CMa">
+                                            <rect key="frame" x="346.5" y="15" width="22.5" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.70223445595854916" green="0.70223445595854916" blue="0.70223445595854916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="b5M-wn-CMa" secondAttribute="trailing" constant="6" id="LFH-1o-uRd"/>
+                                        <constraint firstItem="b5M-wn-CMa" firstAttribute="centerY" secondItem="9bP-5W-UZG" secondAttribute="centerY" id="YiY-3S-rbc"/>
                                         <constraint firstItem="VWh-yG-XWR" firstAttribute="leading" secondItem="9bP-5W-UZG" secondAttribute="leading" constant="16" id="hQp-Oy-uYE"/>
                                         <constraint firstItem="VWh-yG-XWR" firstAttribute="centerY" secondItem="9bP-5W-UZG" secondAttribute="centerY" id="vAU-PL-NvW"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="name" destination="VWh-yG-XWR" id="WYC-rc-PVY"/>
+                                    <outlet property="pageCounts" destination="b5M-wn-CMa" id="Rep-sb-Xdf"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fileCell" id="0Cn-sL-eZj">

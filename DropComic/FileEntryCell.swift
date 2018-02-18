@@ -11,9 +11,17 @@ import SwiftyDropbox
 
 class FileEntryCell: UITableViewCell {
   @IBOutlet var name : UILabel!
+  @IBOutlet var pageCounts : UILabel!
   var file : Files.Metadata? {
     didSet {
-      self.name.text = file?.name
+      guard let file = file else { return }
+      self.name.text = file.name
+      if let data = ComicDataCache.getComicData(path: file.pathLower!) {
+        pageCounts.isHidden = false
+        pageCounts.text = "\(data.lastPageRead) / \(data.pageCount)"
+      } else {
+        pageCounts.isHidden = true
+      }
     }
   }
 }

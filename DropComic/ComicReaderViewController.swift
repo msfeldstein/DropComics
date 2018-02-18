@@ -70,12 +70,23 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
     }
   }
   
+  func currentPage() -> Int {
+    return self.collectionView.indexPathsForVisibleItems.first?.row ?? 0
+  }
+  
   override func viewWillLayoutSubviews() {
     collectionView.collectionViewLayout.invalidateLayout()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     self.navigationController?.hidesBarsOnTap = true
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    let data = ComicDataCache.getComicData(path: comicMetadata.pathLower!) ?? ComicData()
+    data.lastPageRead = currentPage()
+    data.pageCount = self.pageCount
+    ComicDataCache.setComicData(path: comicMetadata.pathLower!, comic: data)
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -130,28 +130,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hvO-ur-GfN">
-                                <rect key="frame" x="112" y="342.5" width="150" height="2"/>
+                                <rect key="frame" x="112" y="343" width="150" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="LaJ-2n-K9e"/>
                                 </constraints>
                             </progressView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I0u-P9-kB9">
+                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1GM-v7-SY0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="UcW-Mx-7xc">
+                                    <size key="itemSize" width="375" height="646"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="page" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="page" id="gjP-MP-rcP">
+                                        <rect key="frame" x="0.0" y="11" width="375" height="646"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5w-6l-zW2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
+                                                    <color key="backgroundColor" red="1" green="0.59796811305923248" blue="0.10042695684544378" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="A5w-6l-zW2" secondAttribute="trailing" id="2Kl-z0-Ake"/>
+                                            <constraint firstItem="A5w-6l-zW2" firstAttribute="top" secondItem="gjP-MP-rcP" secondAttribute="top" id="bj9-0r-fXH"/>
+                                            <constraint firstItem="A5w-6l-zW2" firstAttribute="leading" secondItem="gjP-MP-rcP" secondAttribute="leading" id="dOy-en-L0J"/>
+                                            <constraint firstAttribute="bottom" secondItem="A5w-6l-zW2" secondAttribute="bottom" id="emL-S6-1O3"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="TUe-LX-UdP" id="ZAA-78-FIn"/>
+                                    <outlet property="delegate" destination="TUe-LX-UdP" id="sH4-tO-qDg"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0fZ-ey-Uyf" firstAttribute="top" secondItem="I0u-P9-kB9" secondAttribute="top" constant="20" id="0Db-Ql-Ns7"/>
+                            <constraint firstItem="1GM-v7-SY0" firstAttribute="height" secondItem="7T7-qZ-djd" secondAttribute="height" id="79y-Dj-ZKl"/>
+                            <constraint firstItem="1GM-v7-SY0" firstAttribute="leading" secondItem="0fZ-ey-Uyf" secondAttribute="leading" id="DKE-12-DTi"/>
                             <constraint firstItem="hvO-ur-GfN" firstAttribute="centerY" secondItem="0fZ-ey-Uyf" secondAttribute="centerY" id="E8J-Kq-DOi"/>
-                            <constraint firstItem="I0u-P9-kB9" firstAttribute="leading" secondItem="0fZ-ey-Uyf" secondAttribute="leading" id="VcT-fI-7Ny"/>
-                            <constraint firstItem="0fZ-ey-Uyf" firstAttribute="trailing" secondItem="I0u-P9-kB9" secondAttribute="trailing" id="ly1-j2-QAt"/>
-                            <constraint firstItem="0fZ-ey-Uyf" firstAttribute="bottom" secondItem="I0u-P9-kB9" secondAttribute="bottom" id="nTt-8u-fjt"/>
+                            <constraint firstItem="1GM-v7-SY0" firstAttribute="width" secondItem="7T7-qZ-djd" secondAttribute="width" id="Xp2-oS-Opx"/>
+                            <constraint firstItem="1GM-v7-SY0" firstAttribute="bottom" secondItem="0fZ-ey-Uyf" secondAttribute="bottom" id="cKO-Lo-w2L"/>
+                            <constraint firstItem="0fZ-ey-Uyf" firstAttribute="trailing" secondItem="1GM-v7-SY0" secondAttribute="trailing" id="jW1-Vm-MIw"/>
                             <constraint firstItem="hvO-ur-GfN" firstAttribute="centerX" secondItem="0fZ-ey-Uyf" secondAttribute="centerX" id="sIF-D1-bOG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0fZ-ey-Uyf"/>
                     </view>
                     <connections>
-                        <outlet property="pageImage" destination="I0u-P9-kB9" id="WlL-nb-9C5"/>
+                        <outlet property="collectionView" destination="1GM-v7-SY0" id="aVu-RR-3si"/>
                         <outlet property="progressBar" destination="hvO-ur-GfN" id="U3k-dB-tAR"/>
                     </connections>
                 </viewController>

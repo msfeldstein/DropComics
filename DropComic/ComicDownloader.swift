@@ -14,13 +14,6 @@ import Cache
 class ComicDownloader {
   static let sharedInstance = ComicDownloader()
   
-  let storage : Storage
-  private init() {
-    let diskConfig = DiskConfig(name: "Comic Bok")
-    let memoryConfig = MemoryConfig(expiry: .never, countLimit: 10, totalCostLimit: 10)
-    self.storage = try! Storage(diskConfig: diskConfig, memoryConfig: memoryConfig)
-  }
-  
   func startDownload(path : String) -> ComicDownloadRequest {
     // Download to URL
     guard let client = DropboxClientsManager.authorizedClient else {
@@ -35,20 +28,16 @@ class ComicDownloader {
       fatalError("Couldn't create cache key for path \(path)")
     }
     
-    do {
-      let url = try self.storage.object(ofType: String.self, forKey: cacheKey)
+    let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    let destURL = directoryURL.appendingPathComponent(cacheKey)
+    if FileManager.default.fileExists(atPath: destURL.path) {
       DispatchQueue.main.async {
         request.progressCallback?(1)
-        request.successCallback?(URL(fileURLWithPath: url))
+        request.successCallback?(destURL)
       }
       return request
-    } catch {
-      // need to fetch
     }
-    
-    let fileManager = FileManager.default
-    let directoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    let destURL = directoryURL.appendingPathComponent(cacheKey)
+
     let destination: (URL, HTTPURLResponse) -> URL = { temporaryURL, response in
         return destURL
     }
@@ -58,7 +47,6 @@ class ComicDownloader {
     }
     .response { response, error in
       if let response = response {
-        try? self.storage.setObject(response.1.path, forKey: cacheKey)
         request.successCallback?(response.1)
       }
     }

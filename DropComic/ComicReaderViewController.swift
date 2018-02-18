@@ -14,7 +14,7 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
   @IBOutlet var progressBar : UIProgressView!
   @IBOutlet var collectionView : UICollectionView!
   @IBOutlet var errorText : UILabel!
-
+  
   var pages = [String]()
   var pageCount = 0
   var rarchive : URKArchive?
@@ -22,17 +22,17 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
     didSet {
       self.title = comicMetadata.name
       ComicDownloader.sharedInstance.startDownload(path: comicMetadata.pathLower!)
-      .success { url in
-        do {
-          self.rarchive = try URKArchive(url: url)
-          self.pages = try self.rarchive!.listFilenames()
-          self.reload()
-        } catch {
-          self.showError("Not a valid comic file")
+        .success { url in
+          do {
+            self.rarchive = try URKArchive(url: url)
+            self.pages = try self.rarchive!.listFilenames()
+            self.reload()
+          } catch {
+            self.showError("Not a valid comic file")
+          }
         }
-      }
-      .progress { progressData in
-        self.progressBar.progress = progressData
+        .progress { progressData in
+          self.progressBar.progress = progressData
       }
     }
   }
@@ -50,7 +50,7 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
     self.errorText.isHidden = false
     self.errorText.layoutIfNeeded()
   }
-
+  
   func reload() {
     if pages.count > 0 {
       self.pageCount = pages.count
@@ -100,7 +100,7 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
       let image = UIImage(data: data)
       cell.image = image
     } catch {
-    
+      
     }
     return cell
   }
@@ -114,6 +114,6 @@ class ComicReaderViewController: UIViewController, UICollectionViewDelegate, UIC
   }
   
   override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return UIStatusBarAnimation.slide
-    }
+    return UIStatusBarAnimation.slide
+  }
 }

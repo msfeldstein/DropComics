@@ -20,8 +20,8 @@ class ComicData : NSObject, NSCoding {
   }
   
   func encode(with aCoder: NSCoder) {
-      aCoder.encode(pageCount, forKey: "pageCount")
-      aCoder.encode(lastPageRead, forKey: "lastPageRead")
+    aCoder.encode(pageCount, forKey: "pageCount")
+    aCoder.encode(lastPageRead, forKey: "lastPageRead")
   }
 }
 

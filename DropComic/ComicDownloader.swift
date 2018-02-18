@@ -37,18 +37,18 @@ class ComicDownloader {
       }
       return request
     }
-
+    
     let destination: (URL, HTTPURLResponse) -> URL = { temporaryURL, response in
-        return destURL
+      return destURL
     }
     client.files.download(path: path, overwrite: true, destination: destination)
-    .progress { (progress) in
-      request.progressCallback?(Float(progress.fractionCompleted))
-    }
-    .response { response, error in
-      if let response = response {
-        request.successCallback?(response.1)
+      .progress { (progress) in
+        request.progressCallback?(Float(progress.fractionCompleted))
       }
+      .response { response, error in
+        if let response = response {
+          request.successCallback?(response.1)
+        }
     }
     return request
   }

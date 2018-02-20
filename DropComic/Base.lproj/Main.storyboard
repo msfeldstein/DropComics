@@ -183,7 +183,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etg-c5-Tnc">
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="etg-c5-Tnc">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5w-6l-zW2">
@@ -194,20 +194,14 @@
                                                     <constraints>
                                                         <constraint firstItem="A5w-6l-zW2" firstAttribute="width" secondItem="etg-c5-Tnc" secondAttribute="width" id="BwF-Oj-CpO"/>
                                                         <constraint firstItem="A5w-6l-zW2" firstAttribute="centerY" secondItem="etg-c5-Tnc" secondAttribute="centerY" id="DsD-wK-Wa8"/>
-                                                        <constraint firstAttribute="trailing" secondItem="A5w-6l-zW2" secondAttribute="trailing" constant="-1" id="EuF-0c-Q4p"/>
                                                         <constraint firstItem="A5w-6l-zW2" firstAttribute="height" secondItem="etg-c5-Tnc" secondAttribute="height" id="ioP-kB-eEf"/>
-                                                        <constraint firstAttribute="bottom" secondItem="A5w-6l-zW2" secondAttribute="bottom" id="nqm-y2-ZCF"/>
                                                         <constraint firstItem="A5w-6l-zW2" firstAttribute="centerX" secondItem="etg-c5-Tnc" secondAttribute="centerX" id="pbx-lV-F94"/>
                                                     </constraints>
                                                 </scrollView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="A5w-6l-zW2" firstAttribute="centerX" secondItem="gjP-MP-rcP" secondAttribute="centerX" id="Hc6-Xl-Ict"/>
-                                            <constraint firstItem="A5w-6l-zW2" firstAttribute="height" secondItem="gjP-MP-rcP" secondAttribute="height" id="R6m-v4-hYG"/>
-                                            <constraint firstItem="A5w-6l-zW2" firstAttribute="width" secondItem="gjP-MP-rcP" secondAttribute="width" id="RGc-DN-6sq"/>
                                             <constraint firstItem="etg-c5-Tnc" firstAttribute="height" secondItem="gjP-MP-rcP" secondAttribute="height" id="dAj-DA-ZwQ"/>
-                                            <constraint firstItem="A5w-6l-zW2" firstAttribute="centerY" secondItem="gjP-MP-rcP" secondAttribute="centerY" id="k39-jJ-hsm"/>
                                             <constraint firstItem="etg-c5-Tnc" firstAttribute="centerX" secondItem="gjP-MP-rcP" secondAttribute="centerX" id="kCu-9g-VbU"/>
                                             <constraint firstItem="etg-c5-Tnc" firstAttribute="width" secondItem="gjP-MP-rcP" secondAttribute="width" id="kL5-8y-GPg"/>
                                             <constraint firstItem="etg-c5-Tnc" firstAttribute="centerY" secondItem="gjP-MP-rcP" secondAttribute="centerY" id="vlg-4Z-fYK"/>

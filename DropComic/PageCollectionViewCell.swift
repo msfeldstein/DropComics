@@ -17,7 +17,8 @@ class PageCollectionViewCell: UICollectionViewCell, UIScrollViewDelegate {
       imageView.image = image
       scroller.delegate = self
       scroller.maximumZoomScale = 5.0
-      scroller.contentSize = self.contentView.bounds.size
+      scroller.contentSize = self.imageView.bounds.size
+      scroller.zoomScale = 1.0
     }
   }
   

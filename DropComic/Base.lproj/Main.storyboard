@@ -82,21 +82,41 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="8BW-SP-K1M">
+                                            <rect key="frame" x="342" y="12" width="21" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="gH5-WP-xQr"/>
+                                                <constraint firstAttribute="width" constant="21" id="mhB-ma-lhy"/>
+                                            </constraints>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5M-wn-CMa">
-                                            <rect key="frame" x="346.5" y="15" width="22.5" height="15"/>
+                                            <rect key="frame" x="311" y="15" width="23" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.70223445595854916" green="0.70223445595854916" blue="0.70223445595854916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rel-M6-nOZ">
+                                            <rect key="frame" x="342" y="20" width="21" height="2"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="21" id="e2h-tD-OC6"/>
+                                                <constraint firstAttribute="height" constant="2" id="mMS-jG-efH"/>
+                                            </constraints>
+                                        </progressView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="b5M-wn-CMa" secondAttribute="trailing" constant="6" id="LFH-1o-uRd"/>
+                                        <constraint firstItem="Rel-M6-nOZ" firstAttribute="centerY" secondItem="9bP-5W-UZG" secondAttribute="centerY" id="AKj-KR-lk2"/>
+                                        <constraint firstAttribute="trailing" secondItem="8BW-SP-K1M" secondAttribute="trailing" constant="12" id="Mb3-ug-RYr"/>
+                                        <constraint firstItem="8BW-SP-K1M" firstAttribute="leading" secondItem="b5M-wn-CMa" secondAttribute="trailing" constant="8" id="SLs-vB-AdD"/>
                                         <constraint firstItem="b5M-wn-CMa" firstAttribute="centerY" secondItem="9bP-5W-UZG" secondAttribute="centerY" id="YiY-3S-rbc"/>
+                                        <constraint firstItem="8BW-SP-K1M" firstAttribute="centerY" secondItem="9bP-5W-UZG" secondAttribute="centerY" id="crC-wJ-b6C"/>
+                                        <constraint firstAttribute="trailing" secondItem="Rel-M6-nOZ" secondAttribute="trailing" constant="12" id="e9J-wj-pgz"/>
                                         <constraint firstItem="VWh-yG-XWR" firstAttribute="leading" secondItem="9bP-5W-UZG" secondAttribute="leading" constant="16" id="hQp-Oy-uYE"/>
                                         <constraint firstItem="VWh-yG-XWR" firstAttribute="centerY" secondItem="9bP-5W-UZG" secondAttribute="centerY" id="vAU-PL-NvW"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="downloadIcon" destination="8BW-SP-K1M" id="WWx-Ys-snu"/>
+                                    <outlet property="downloadProgress" destination="Rel-M6-nOZ" id="c7h-Re-0Ds"/>
                                     <outlet property="name" destination="VWh-yG-XWR" id="WYC-rc-PVY"/>
                                     <outlet property="pageCounts" destination="b5M-wn-CMa" id="Rep-sb-Xdf"/>
                                 </connections>
@@ -270,4 +290,7 @@
             <point key="canvasLocation" x="1024.8" y="49.925037481259373"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Checkmark" width="32" height="32"/>
+    </resources>
 </document>

@@ -26,10 +26,11 @@ class DirectoryListViewController: UITableViewController {
         if let result = response {
           print(result)
           self.files = result.entries
-          if self.containsComics() {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download All", style: .plain, target: self, action: #selector(DirectoryListViewController.downloadAll))
-          }
+          
           DispatchQueue.main.async {
+            if self.containsComics() {
+              self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download All", style: .plain, target: self, action: #selector(DirectoryListViewController.downloadAll))
+            }
             self.tableView.reloadData()
           }
         }
@@ -46,6 +47,21 @@ class DirectoryListViewController: UITableViewController {
   
   @objc func downloadAll(sender : UIBarButtonItem) {
     print("DOWNLOAD ALL", sender)
+    ComicDownloader.sharedInstance.downloadBatch(comics: uncachedComics()) {
+      self.tableView.reloadData()
+    }
+    
+  }
+  
+  func uncachedComics() -> [Files.Metadata] {
+    return self.files.filter { metadata -> Bool in
+      return !ComicDownloader.sharedInstance.isCached(path: metadata.pathLower!)
+    }
+  }
+  func nextUncachedComic() -> Files.Metadata? {
+    return self.files.filter { metadata -> Bool in
+      return !ComicDownloader.sharedInstance.isCached(path: metadata.pathLower!)
+    }.first
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
